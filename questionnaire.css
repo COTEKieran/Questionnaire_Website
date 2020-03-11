@@ -30,7 +30,7 @@ h1 {
   margin-top: 50px;
 }
 
-li {
+header li {
   overflow: hidden;
   font-weight: bold;
   padding-left: 50px;
@@ -39,7 +39,7 @@ li {
   text-decoration: none;
 }
 
-button {
+header button {
   margin-top: 20px;
   font-weight: bold;
   font-size: 24px;
@@ -49,29 +49,29 @@ button {
 
 }
 
-button:hover {
+header button:hover {
   background-color: white;
   cursor: pointer;
 }
 
 
 
-li a {
+header li a {
   color: black;
 }
 
-li:hover {
+header li:hover {
   color: white;
 }
 
-button span {
+header button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-button span:after {
+header button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -80,11 +80,11 @@ button span:after {
   transition: 0.5s;
 }
 
-button:hover span {
+header button:hover span {
   padding-right: 25px;
 }
 
-button:hover span:after {
+header button:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -210,7 +210,7 @@ button:hover span:after {
 .signup {
   padding: 40px;
   width: 250px;
-  margin-top: 20px;
+  margin-top: 40px;
   height: 430px;
   margin: 0 auto;
   background: rgb(12, 22, 161);
@@ -218,6 +218,7 @@ button:hover span:after {
 }
 
 .signup form {
+  margin-top: 20px;
   width: 240px;
   text-align: center;
 }
@@ -255,4 +256,33 @@ button:hover span:after {
 .signup a {
   color: white;
   font-weight: bold;
+}
+
+/*Complete Questionnaire Form*/
+
+#questions {
+  padding-left: 5%;
+}
+
+#questions input {
+  border-radius: 6px;
+  width: 200px;
+  font-size: 20px;
+}
+
+#questions li {
+
+  font-size: 20px;
+  list-style-type: none;
+}
+
+#questions h5 {
+  color: black;
+  font-size: 20px;
+
+
+}
+
+h2 {
+  padding-left: 5%;
 }
