@@ -1,0 +1,305 @@
+* {
+  font-family: candara;
+  text-decoration: none;
+}
+
+header {
+  background-color:rgb(12, 22, 161);
+  width: 100%;
+  display: inline-block;
+  height: 150px;
+  color:white;
+}
+
+h1 {
+  float: left;
+  color: white;
+  padding-left: 15px;
+  margin-top: 50px;
+}
+
+li {
+
+  overflow: hidden;
+  font-weight: bold;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: inline-block;
+  text-decoration: none;
+
+}
+
+
+
+
+button {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 8px;
+
+  padding: 20px;
+  vertical-align: middle;
+
+}
+
+button:hover {
+  background-color: white;
+  cursor: pointer;
+
+
+}
+
+body{
+  
+}
+footer {
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(12, 22, 161);
+  font-weight: bold;
+ 
+}
+
+
+li a {
+  color: black;
+}
+
+li:hover {
+  color: white;
+}
+
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+@media(max-width:1360px) {
+  .navbar {
+    display: none;
+  }
+}
+
+@media(min-width:1360px) {
+  .dropbtn {
+    display: none;
+  }
+}
+
+.dropbtn {
+
+  color: black;
+  padding: 16px;
+
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  background-color: white;
+  font-size: 24px;
+  vertical-align: middle;
+
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: white;
+  color: black
+}
+
+/* The container <div> - needed to position the dropdown content */
+.toggle {
+  position: relative;
+  display: inline-block;
+  float: right;
+  font-family: candera;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  margin-top: 55px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 18px;
+  font-family: candara;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: candara;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+form {
+
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.login {
+  background-color: rgb(12, 22, 161);
+  color: white;
+  margin: 0 auto;
+  width: 250px;
+  padding: 20px;
+  height: 420px;
+  margin-top: 50px;
+
+
+}
+
+#loginform {
+  width: 240px;
+  text-align: center;
+  padding-top: 10px;
+  
+  
+
+
+}
+
+
+#loginform input {
+  width: 240px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid white;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 200px;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+  color: black;
+  border-radius: 8px;
+  margin-top:20px;
+}
+
+#loginform input[type=button] {
+  border: none;
+  width: 190px;
+  background: white;
+  color: black;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+
+}
+
+#loginform input[type=button]:hover {
+  color: white;
+  background: rgb(12, 22, 161)
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 50px;
+}
+
+#loginform a {
+  color: white;
+  padding: 5px;
+}
+
+.signup {
+  padding: 40px;
+  width: 250px;
+  margin-top:20px;
+
+  height: 430px;
+  
+  margin: 0 auto;
+
+  background: rgb(12, 22, 161);
+  color: white;
+}
+
+.signup form {
+  width: 240px;
+  text-align: center;
+}
+
+.signup input {
+  width: 240px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+  font-family: 16px;
+  font-weight: 200px;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+  color: black;
+  margin-top: 20px;
+}
+
+.signup input[type=button] {
+  border: none;
+  width: 190px;
+  background: white;
+  color: black;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.signup input[type=button]:hover {
+  color: white;
+  background-color: rgb(12, 22, 161);
+}
+
+.signup a {
+  color: white;
+  font-weight: bold;
+}
