@@ -4,6 +4,7 @@ async function pageLoaded() {
   console.log(data);
 
   read(data);
+  
 }
 
 function read(data) {
@@ -66,7 +67,20 @@ function read(data) {
       }
 
     }
+
+  
+
   }
+
+    function reset(){
+      document.getElementById("questions").reset();
+    }
+
+    function submit(){
+      document.getElementById("questions").submit();
+    }
+
+
 
     function dropdownFunction() {
       document.getElementById("myDropdown").classList.toggle("show");
@@ -74,4 +88,8 @@ function read(data) {
 
     window.onload = function () {
       pageLoaded();
+      document.getElementById("resetButton").addEventListener("click",reset)
+      document.getElementById("submitButton").addEventListener("click",submit)
     }
+
+  
