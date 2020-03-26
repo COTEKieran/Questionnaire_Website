@@ -83,8 +83,12 @@ function read(data) {
 
 
     function dropdownFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
+      document.getElementById("myDropdown").classList.toggle("show");    
     }
+
+    
+
+    
 
     window.onload = function () {
       pageLoaded();
@@ -92,4 +96,6 @@ function read(data) {
       document.getElementById("submitButton").addEventListener("click",submit)
     }
 
-  
+
+    
+   
