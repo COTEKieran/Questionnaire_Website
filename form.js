@@ -86,8 +86,34 @@ function read(data) {
       document.getElementById("myDropdown").classList.toggle("show");    
     }
 
+   /// GOOGLE
+   function onSignIn(googleUser) {
+    const profile = googleUser.getBasicProfile();
+    const el = document.getElementById('greeting');
+    el.textContent = 'Hello ' + profile.getName() + '!';
+    const pr = document.getElementById('linkToHome');
+    pr.style.visibility = 'visible';
+    let link = document.createElement('a');
+    link.textContent = 'Continue to Account';
+    link.href = 'http://localhost:8080/completequestionnaire.html';
+    pr.appendChild(link);
+    document.getElementById('signoutlink').style.visibility= 'visible';
     
+    
+  }
 
+
+  async function signOut() {
+    location.reload();
+    await gapi.auth2.getAuthInstance().signOut();
+    console.log('User signed out.');
+    const el = document.getElementById('greeting');
+    el.textContent = 'Not Signed In!';
+    document.getElementById('linkToHome').style.visibility='hidden';
+    document.getElementById('signoutlink').style.visibility = 'hidden';
+    
+   
+  }
     
 
     window.onload = function () {

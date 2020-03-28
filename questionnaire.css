@@ -195,100 +195,6 @@ header button:hover span:after {
   margin-top: 50px;
 }
 
-#loginform {
-  width: 240px;
-  text-align: center;
-  padding-top: 10px;
-}
-
-#loginform input {
-  width: 240px;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid white;
-  font-size: 16px;
-  font-weight: 200px;
-  padding: 10px 0;
-  transition: border 0.5s;
-  outline: none;
-  color: black;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-#loginform input[type=button] {
-  border: none;
-  width: 190px;
-  background: white;
-  color: black;
-  font-size: 16px;
-  line-height: 25px;
-  padding: 10px 0;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-#loginform input[type=button]:hover {
-  color: white;
-  background: #2f5a9e
-}
-
-#loginform a {
-  color: white;
-  padding: 5px;
-}
-
-/* Signup Form */
-.signup {
-  padding: 40px;
-  width: 250px;
-  margin-top: 20px;
-  height: 430px;
-  margin: 0 auto;
-  background: #2f5a9e;
-  color: white;
-}
-
-.signup form {
-  
-  width: 240px;
-  text-align: center;
-}
-
-.signup input {
-  width: 240px;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid black;
-  font-weight: 200px;
-  padding: 10px 0;
-  transition: border 0.5s;
-  outline: none;
-  color: black;
-  margin-top: 20px;
-}
-
-.signup input[type=button] {
-  border: none;
-  width: 190px;
-  background: white;
-  color: black;
-  font-size: 16px;
-  line-height: 25px;
-  padding: 10px 0;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.signup input[type=button]:hover {
-  color: white;
-  background-color: #2f5a9e;
-}
-
-.signup a {
-  color: white;
-  font-weight: bold;
-}
 
 /*Complete Questionnaire Form*/
 
@@ -356,4 +262,40 @@ font-size:16px;
 
 h2 {
   padding-left: 5%;
+}
+
+/* Google Sign-In Button */
+.g-signin2 {
+  width: 100%;
+}
+
+
+/* #greeting{
+    margin-top: 10px;
+} */
+
+.userName {
+  width: 70%;
+   
+  font-weight: 1000;
+  margin-top: 10px;
+}
+
+#linkToHome {
+  visibility: hidden;
+  color: #000;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 0.2rem solid #808080;
+  margin-top: 10px;
+  
+}
+
+#signoutlink{
+  visibility: hidden;
+  color: #000;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 0.2rem solid #808080;
+  margin-top: 40px;
 }

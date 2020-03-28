@@ -5,7 +5,11 @@
     Questionnaire
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="questionnaire.js"></script>
+    <meta name="google-signin-client_id" content="313462441845-tg48640feaon7g0pim1smph798l02lch.apps.googleusercontent.com">
+    <script src="form.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer>
+
+    </script>
 <link rel = "stylesheet" href="questionnaire.css">
 <header>
   <h1>QuestionnaireBuddy</h1>
@@ -13,19 +17,14 @@
 <body>
 <body>
 <div class="login">
-  <form id="loginform">
-    <h2>Log In</h2>
-    <div class="logininputs">
-      <input type="text" name="user" placeholder="Username">
-      <input type="password" name="pass" placeholder="Password" >
+  <h2>Sign in With Google Account</h2>
+    <div class="g-signin2" data-onsuccess="onSignIn" ></div>
+    <div class="userName" id="greeting">Not Signed In</div>
+    <div id="linkToHome"></div>
+    <p></p>
+    <a id="signoutlink" href="#" onclick="signOut();">Sign out</a>
       </div>
-      <a href="completequestionnaire.html"><input type="button" value="Log In"></a>
 
       
-
-      <p>Don't have an account?<a href="signuppage.html">Sign Up</a></p>
-      </form>
-      </div>
-
 </body>
 </html>
