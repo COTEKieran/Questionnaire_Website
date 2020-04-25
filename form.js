@@ -12,18 +12,21 @@ function read(data) {
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
     const questionName = document.createElement("h5");
+    questionName.setAttribute("id", "questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
 
     if (data.questions[i].type == 'text') {
-      const txt = document.createElement('input');
-      txt.setAttribute('type', 'text');
-      body.appendChild(txt);
+      const text = document.createElement('input');
+      text.setAttribute('type', 'text');
+      text.setAttribute('id','questionResponse');
+      body.appendChild(text);
     }
 
     if (data.questions[i].type == 'number') {
       const num = document.createElement('input')
       num.setAttribute('type', 'number');
+      num.setAttribute('id','questionResponse');
       body.appendChild(num);
     }
 
@@ -36,6 +39,7 @@ function read(data) {
           const single = document.createElement('input');
           single.setAttribute('type', 'radio');
           single.setAttribute('name', 'single');
+          single.setAttribute('id','questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
           li.append(single);
@@ -54,7 +58,8 @@ function read(data) {
           const li = document.createElement('li');
           const multiple = document.createElement('input');
           multiple.setAttribute('type', 'checkbox');
-          multiple.setAttribute('name', 'mutiple');
+          multiple.setAttribute('name', 'mutiple_ ' + options[i]);
+          multiple.setAttribute('id','questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
           li.append(multiple);
@@ -78,7 +83,53 @@ function read(data) {
 
     function submit(){
       document.getElementById("questions").submit();
+      let json = receiveJson();
+      console.log(json);
     }
+
+    function receiveJson(){
+      let namesElement = document.getElementsByClassName("questionName");
+      let responseElement = document.getElementsByClassName("questionResponse");
+
+      let nameArray = new Array();
+      let responseArray = new Array();
+      let typeArray = new Array();
+
+      for(let i = 0; i < namesElement.length; i++){
+        nameArray[i] = namesElement[i].textContent;
+        typeArray[i] = responseElement[i].getAttribute("type");
+      }
+
+      responseArray = getQuestionReponses(typeArray, responseArray);
+
+      console.log(nameArray);
+      console.log(responseArray);
+      console.log(typeArray);
+
+      let responses = new Array();
+      responses[0] = nameArray;
+      reponses[1] = responseArray;
+      responses[2] = typeArray;
+
+      let data = { questionnaire: responses };
+      let json = JSON.stringify(data);
+
+      return json;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
