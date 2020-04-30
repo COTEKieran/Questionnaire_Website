@@ -100,7 +100,7 @@ function read(data) {
         typeArray[i] = responseElement[i].getAttribute("type");
       }
 
-      responseArray = getQuestionReponses(typeArray, responseArray);
+      responseArray = getQuestionReponses(typeArray, responseElement);
 
       console.log(nameArray);
       console.log(responseArray);
@@ -164,7 +164,7 @@ function read(data) {
 
   async function signOut() {
     location.reload();
-    await gapi.auth2.getAuthInstance().signOut();
+    
     console.log('User signed out.');
     const el = document.getElementById('greeting');
     el.textContent = 'Not Signed In';
