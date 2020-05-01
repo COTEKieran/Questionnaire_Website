@@ -72,19 +72,29 @@ function read(data) {
       }
 
     }
-
-  
-
   }
 
     function reset(){
       document.getElementById("questions").reset();
     }
 
-    function submit(){
-      document.getElementById("questions").submit();
-      let json = receiveJson();
-      console.log(json);
+
+
+    function getResults(typeArray, responseElement){
+      let responseArray = new Array();
+      for (let i = 0; i < typeArray.length; i++){
+        if(typeArray[i] == "text" || typeArray[i] == "number"){
+          responseArray[i] = responseElement[i].value;
+        }
+        else if (typeArray[i] == "radio"){
+          responseArray[i] = responseElement[i].value;
+        }
+        else if (typeArray[i] == "checkbox"){
+          responseArray[i] = responseElement[i].value;
+        }
+      }
+
+    return responseArray;
     }
 
     function receiveJson(){
@@ -100,7 +110,7 @@ function read(data) {
         typeArray[i] = responseElement[i].getAttribute("type");
       }
 
-      responseArray = getQuestionReponses(typeArray, responseElement);
+      responseArray = getResults(typeArray, responseElement);
 
       console.log(nameArray);
       console.log(responseArray);
@@ -108,7 +118,7 @@ function read(data) {
 
       let responses = new Array();
       responses[0] = nameArray;
-      reponses[1] = responseArray;
+      responses[1] = responseArray;
       responses[2] = typeArray;
 
       let data = { questionnaire: responses };
@@ -117,19 +127,31 @@ function read(data) {
       return json;
     }
 
+    function submit(){
+      // document.getElementById("questions").submit();
+      console.log("Hello world")
+      let json = receiveJson();
+      console.log(json);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    function uploadQuestionaire(){
+      try{
+        let json = receiveJson();
+        console.log(json);
+        const options = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: json
+      };
+      fetch('/post-upload', options);
+      }
+      catch(err){
+          console.log("File can not be uploaded at this moment Err:" + err);
+      }
+        }
+  
 
 
 
