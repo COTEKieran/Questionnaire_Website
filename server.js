@@ -21,7 +21,7 @@ app.post('/post-test', (req,res) => {
   res.sendStatus(200);
 
   fs.writeFile('pageText.txt', JSON.stringify(req.body), (err) => {
-    if (err) conole.log (err);
+    if (err) console.log (err);
     console.log("successfully Written to File.");
   });
 });
