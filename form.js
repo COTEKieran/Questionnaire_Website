@@ -11,22 +11,22 @@ function read(data) {
   console.log(data);
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
-    const questionName = document.createElement("h5");
-    questionName.setAttribute("id", "questionName");
+    let questionName = document.createElement("h5");
+    questionName.classList.add("questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
 
     if (data.questions[i].type == 'text') {
       const text = document.createElement('input');
       text.setAttribute('type', 'text');
-      text.setAttribute('id','questionResponse');
+      text.classList.add('questionResponse');
       body.appendChild(text);
     }
 
     if (data.questions[i].type == 'number') {
       const num = document.createElement('input')
       num.setAttribute('type', 'number');
-      num.setAttribute('id','questionResponse');
+      num.classList.add('questionResponse');
       body.appendChild(num);
     }
 
@@ -39,7 +39,7 @@ function read(data) {
           const single = document.createElement('input');
           single.setAttribute('type', 'radio');
           single.setAttribute('name', 'single');
-          single.setAttribute('id','questionResponse');
+          single.classList.add('questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
           li.append(single);
@@ -59,7 +59,7 @@ function read(data) {
           const multiple = document.createElement('input');
           multiple.setAttribute('type', 'checkbox');
           multiple.setAttribute('name', 'mutiple_ ' + options[i]);
-          multiple.setAttribute('id','questionResponse');
+          multiple.classList.add('questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
           li.append(multiple);
@@ -129,7 +129,7 @@ function read(data) {
 
     function submit(){
       // document.getElementById("questions").submit();
-      console.log("Hello world")
+     
       let json = receiveJson();
       console.log(json);
     }
