@@ -6,36 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="questionnaire.css">
   <script rel="form" src="form.js"></script>
-  
+
 </head>
+
 <body>
-<header>
+  <header id="header">
 
-  <h1>QuestionnaireBuddy</h1>
+    <h1>QuestionnaireBuddy</h1>
 
-<!--Toggle Navbar drop-down menu--> 
-  <div class="toggle">
-    <button onclick="dropdownFunction()" class="dropbtn">Find Page:</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="">Complete Questionnaire</a>
-      <a href="">Create Questionnaire</a>
-      <a href="index.html" onclick="signOut();">Sign Out</a>
+    <!--Toggle Navbar drop-down menu-->
+    <div class="toggle">
+      <button onclick="dropdownFunction()" class="dropbtn">Find Page:</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="">Complete Questionnaire</a>
+        <a href="">Create Questionnaire</a>
+        <a href="index.html" onclick="signOut();">Sign Out</a>
+      </div>
     </div>
-  </div>
 
-  <!--Consistent nav bar-->
-  <div class="navbar">
-    <ul>
-      <li><button onclick="window.location.href = '';"><span>Complete Questionnaire </span></button></li>
-      <li><button onclick="window.location.href = 'page2.html';"><span>Create Questionnaire </span></button></li>
-      <li><button onclick="window.location.href = 'index.html' "onclick= signOut();"><span>Sign Out </span></button></li>
-    </ul>
-  </div>
-</header>
+    <!--Consistent nav bar-->
+    <div class="navbar">
+      <ul>
+        <li><button onclick="window.location.href = '';"><span>Complete Questionnaire </span></button></li>
+        <li><button onclick="window.location.href = 'page2.html';"><span>Create Questionnaire </span></button></li>
+        <li><button onclick="window.location.href = 'index.html' " onclick="signOut();"><span>Sign Out </span></button>
+        </li>
+      </ul>
+    </div>
+  </header>
 
 
-<!--Form that links to JavaScript and JSON file-->
-<h2>Fill in the questionnaire below:</h2>
+<button class="toggleDM" onclick="toggleDarkMode()"><img src="images/moon.jpg" width="50" height="50"></button>
+<button class="toggleLM" onclick="toggleLightMode()"><img src="images/sun.jpg" width="50" height="50"></button>
+
+  <!--Form that links to JavaScript and JSON file-->
+  <h2>Fill in the questionnaire below:</h2>
   <form id="questions">
   </form>
 
@@ -48,9 +53,7 @@
   </button>
 
 
-  <footer>
-    <p>This is for my Web Programming Coursework.<p>
-  </footer>
+ 
 
 </body>
 

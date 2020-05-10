@@ -4,34 +4,22 @@
 }
 
 header {
-  background-color: #2f5a9e;
+  
   width: 100%;
   display: inline-block;
   height: 10%;
   color: white;
 }
 
+#header{
+  background-color: #2f5a9e;
+}
 body{
   background-image: url("images/background.jpg");
 }
 
-footer {
-  color: white;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 10%;
-  background-color: #2f5a9e;
-  font-weight: bold;
-  font-size:2.8vw;
-}
 
-@media(max-width:700px){
 
-  footer{
-    font-size:4vw;
-  }
-}
 
 /* Navbar */
 
@@ -197,7 +185,7 @@ header button:hover span:after {
 
 /* Login Page*/
 
-.login {
+#login {
   background-color: #2f5a9e;
   color: white;
   margin: 0 auto;
@@ -310,4 +298,10 @@ h2 {
   background-color: #fff;
   border: 0.2rem solid #808080;
   margin-top: 40px;
+}
+
+.toggleDM, .toggleLM{
+  float:right;
+  margin-right:5%;
+  margin-top: 5%;
 }

@@ -159,6 +159,29 @@ function read(data) {
       document.getElementById("myDropdown").classList.toggle("show");    
     }
 
+    function toggleDarkMode(){
+      document.body.style.backgroundImage = "url('images/backgrounddark.jpg')";
+      document.body.style.color = "white";
+      document.body.style.transitionDuration = "1s";
+      document.getElementById("header").style.background = "black";
+      document.getElementById("header").style.transitionDuration = "1s";
+      document.getElementById("login").style.backgroundColor = "black";
+      document.getElementById("login").style.transitionDuration = "1s";
+      
+      
+      
+    }
+
+    function toggleLightMode(){
+      document.body.style.backgroundImage = "url('images/background.jpg')";
+      document.body.style.color = "black";
+      document.body.style.transitionDuration = "1s";
+      document.getElementById("header").style.background = "#2f5a9e";
+      document.getElementById("header").style.transitionDuration = "1s";
+      document.getElementById("login").style.background = "#2f5a9e";
+      document.getElementById("login").style.transitionDuration = "1s";
+  
+    }
    /// GOOGLE
    function onSignIn(googleUser) {
     const profile = googleUser.getBasicProfile();
