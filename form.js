@@ -165,8 +165,7 @@ function read(data) {
       document.body.style.transitionDuration = "1s";
       document.getElementById("header").style.background = "black";
       document.getElementById("header").style.transitionDuration = "1s";
-      document.getElementById("login").style.backgroundColor = "black";
-      document.getElementById("login").style.transitionDuration = "1s";
+    
       
       
       
@@ -178,17 +177,13 @@ function read(data) {
       document.body.style.transitionDuration = "1s";
       document.getElementById("header").style.background = "#2f5a9e";
       document.getElementById("header").style.transitionDuration = "1s";
-      document.getElementById("login").style.background = "#2f5a9e";
-      document.getElementById("login").style.transitionDuration = "1s";
+      
   
     }
-   /// GOOGLE
+  
+      /// GOOGLE
    function onSignIn(googleUser) {
     const profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     const el = document.getElementById('greeting');
     el.textContent = 'Hello ' + profile.getName() + '!';
     const pr = document.getElementById('linkToHome');
@@ -198,26 +193,27 @@ function read(data) {
     link.href = 'http://localhost:8080/completequestionnaire.html';
     pr.appendChild(link);
     document.getElementById('signoutlink').style.visibility= 'visible';
-  
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
   }
-    
-  
 
 
   async function signOut() {
     location.reload();
-    
+    await gapi.auth2.getAuthInstance().signOut();
     console.log('User signed out.');
     const el = document.getElementById('greeting');
-    el.textContent = 'Not Signed In';
+    el.textContent = 'Not Signed In!';
     document.getElementById('linkToHome').style.visibility='hidden';
     document.getElementById('signoutlink').style.visibility = 'hidden';
-    
-   
+
+
   }
+
+
 
     window.onload = function () {
       pageLoaded();
