@@ -6,7 +6,7 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-client_id" content="313462441845-tg48640feaon7g0pim1smph798l02lch.apps.googleusercontent.com">
-    <script src="form.js"></script>
+    <script src="login.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer>
 
     </script>
@@ -25,8 +25,10 @@
     <div id="linkToHome"></div>
     <p></p>
     <a id="signoutlink" href="#" onclick="signOut();">Sign out</a>
+      
+      <p>Below is the response from the server API: <button onclick="callServer()">refresh</button>
+        <pre id="server-response" style="border: 1px dashed black; min-width: 10em; min-height: 1em; padding: .5em;"></pre>
       </div>
-
       
 </body>
 </html>
