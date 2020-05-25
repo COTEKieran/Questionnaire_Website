@@ -44,7 +44,7 @@ callServer();
     const response = await fetch('/api/hello', fetchOptions);
     if (!response.ok) {
       // handle the error
-      el.textContent = "Server error:\n" + response.status;
+      el.textContent = "Unauthorised User\n" + "Error code" + " " + response.status;
       return;
     }
   
@@ -53,3 +53,7 @@ callServer();
     console.log('setting text content: ' + data);
     el.textContent = data;
   }
+
+  
+
+ 
