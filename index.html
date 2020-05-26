@@ -5,35 +5,33 @@
     Questionnaire
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--The Google Client ID is essential for authentication in the app with the Google login feature.-->
     <meta name="google-signin-client_id" content="313462441845-tg48640feaon7g0pim1smph798l02lch.apps.googleusercontent.com">
     <script src="login.js"></script>
+
+    <!--Here is a link to the Google API that is used for Google Authenitcation-->
     <script src="https://apis.google.com/js/platform.js" async defer>
 
     </script>
 <link rel = "stylesheet" href="questionnaire.css">
 <body>
+  <!--The header of the app is kept consistent across every page. This is so the user is aware of the name of the application.-->
 <header id="header">
   <h1>QuestionnaireBuddy</h1>
   </header>
 
 <body>
-  
+  <!--The login class holds all of the login method as well as google authenitcation and sign out buttons.-->
 <div class="login" id="login">
   <h2>Sign in With Google Account</h2>
     <div class="g-signin2" data-onsuccess="onSignIn" ></div>
     <div class="userName" id="greeting">Not Signed In</div>
-    <div id="linkToHome"></div>
+    <div id="linkToHome"></div> <!--This link only appears after sign in and directs the user to the welcome page.-->
     <p></p>
-    <a id="signoutlink" href="#" onclick="signOut();">Sign out</a>
-      
-      <p>Below is the response from the server API: <button onclick="callServer()">refresh</button>
-        <pre id="server-response" style="border: 1px dashed black; min-width: 10em; min-height: 1em; padding: .5em;"></pre>
-
-   
-      </div>
-
-      
-
-      
+    <a id="signoutlink" href="#" onclick="signOut();">Sign out</a> <!--When the user clicks on Sign Out (which is only available after sign in) they will be signed out of their google account.-->
+      <p></p>
+      <p>Response from the server API: <button onclick="callServer()">Refresh</button></p>
+        <pre id="server-response"></pre> <!--This is a message showing if the user is authenticated or not. The refresh button can be used to refresh the server and cgheck if the user is authenitcated again.-->
+      </div>  
 </body>
 </html>

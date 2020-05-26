@@ -1,48 +1,56 @@
-* {
-  font-family: candara;
-  text-decoration: none;
-}
+/*This CSS document manages the styling for all pages of the application. Every page is linked to this document to manage the way elements appear on the screen.
+CSS styling includes colour, font, positioning, and considers responsivness of the application.
+Styling was highly considered in the development of the application as it is what the uer sees and is critical to how they judge the app. 
+*/
 
+/*This small section affects the whole application. The font is kept consistent throughout for usabilityb reasons; if different font were used then the firont-end wo0uld look messy.
+I used the font mentioned as it gives the application a professional look. I experimented with many fonts before coming to this decision.*/
+* {
+  font-family: calibri;
+  
+}
+/*The following sections are dedicated to the styling of the header.
+This includes the background colour of the header, which was chosen to be a dark blue colour as it looks professional yet simple.
+The header has a width of 100%, so it takes up the entire width of the user's screen depending on their screen size. 
+*/
 header {
   
   width: 100%;
   display: inline-block;
   height: 10%;
-  color: white;
+  color: white; /*White font colour was chosen for the header as it goes well with the dark blue background.*/
 }
 
 #header{
-  background-color: #2f5a9e;
-}
-body{
-  background-image: url("images/background.jpg");
+  background-color: #1e3964;
 }
 
 
-
-
-/* Navbar */
-
+/*QuestionnaireBuddy was used for the name of the application, and the title was used as h1 in the top-right onn each page.
+A logo was cpnsidered but the title being h1 instead of an image looked far clearer on the page with the header background.*/
 h1 {
   float: left;
   color: white;
   padding-left: 15px;
   margin-top: 2.5%;
-  font-size:2.8vw;
+  font-size:2.8vw; /*vw was used as the font measurement so that when the screen decreases in size, the font size decreases with it.*/
   
 }
 
 
-
+/*The header li section decides the styling of the items in the navigation pane look like. Inside each li was a button that links the user around the application.
+The size and appearance of each li was decided so that it makes up the header and doesn't look too big in contrast with the h1 title.
+*/
 header li {
   overflow: hidden;
   font-weight: bold;
   padding-left: 50px;
   padding-right: 50px;
   display: inline-block;
-  text-decoration: none;
+  text-decoration: none; /*No text decoration prevents default link formatting e.g. underlining the text.*/
+  margin-left:2.5%;
 }
-
+/*The buttons on the navigation pane are also styled with bold font and a solid border.*/ 
 header button {
   margin-top: 2.5%;
   font-weight: bold;
@@ -53,16 +61,15 @@ header button {
   border-color: black;
   border-style: solid;
 }
-
+/*This styling comes into effect when the user hovers their cursor over a specifc button.*/
 header button:hover {
   background-color: white;
-  cursor: pointer;
-  border-radius: 20px;
-  transition:0.25s;
+  cursor: pointer; /*The cursor makes a pointer symbol, highlighting to the user thaty they are hovering over a link.*/
+  border-radius: 20px;  /*The border radius increases, making the buttons more circular.*/
+  transition:0.25s; /*The transition ios very quick and efficient.*/
 }
 
-
-
+/*The following sections are devoted to styling the navigation pane so that it looks different when the user hovers over the buttons.*/
 header li a {
   color: black;
 }
@@ -77,7 +84,7 @@ header button span {
   position: relative;
   transition: 0.3s;
 }
-
+/*This section shows the styling of the arrow feature when the user hovers over the buttons */
 header button span:after {
   content: '\00bb';
   position: absolute;
@@ -96,7 +103,12 @@ header button:hover span:after {
   right: 0;
 }
 
-@media(max-width:1320px) {
+
+/*The @media sections define the styling of different elements when the screen is a certain size.
+Here, the dropdown nav bar is only shown when the screen is at a certain size, and the main navigation bar is hidden.
+*/
+
+@media(max-width:1140px) {
   .navbar {
     display: none;
   }
@@ -118,12 +130,14 @@ header button:hover span:after {
   }
 }
 
-@media(min-width:1320px) {
+@media(min-width:1140px) {
   .dropbtn {
     display: none;
   }
 }
 
+
+/*These scetions are iused for styling the drop down menu, including the button and each item in the dropdown list. */
 .dropbtn {
   color: black;
   padding: 16px;
@@ -183,25 +197,25 @@ header button:hover span:after {
   display: block;
 }
 
-/* Login Page*/
 
-#login {
-  background-color: #2f5a9e;
-  color: white;
-  margin: 0 auto;
-  width: 250px;
-  padding: 20px;
-  height: 420px;
-  margin-top: 50px;
+
+
+/*This background image is for the majority of the screen, and covers the entire body section of each page. 
+The image is fairly simple however better than just a plain white background- this image looks professional. */
+body{
+  background-image: url("images/background.jpg");
 }
 
+/* The following styling sections are relevent for the questionnaire html page, where the questions sare added through JavaScript into id "questions."
+In styling, all features of the questionnaire are added using the id and the element that needs to be styled. 
+/*Questionnaire Form*/
 
-/*Complete Questionnaire Form*/
-
-#questions {
-  padding-left: 5%;
+#questions, h2 {
+  padding-left: 5%;  /*This padding affects the entire set of questions and inputs. It shifts the entire segment right as it was too close to the left border of the screen*/
+  
 }
 
+/*This styling impacts the inputs- this is the box where the user enters information on the form.  */
 #questions input {
   border-radius: 6px;
   width: 250px;
@@ -210,8 +224,10 @@ header button:hover span:after {
   border-style: double;
   text-align: center;
 }
+/*The styling changes when a user hovers over one of the inputs. The border colour changes to dark blue, and the input box gets much bigger.
+This makes it clear that the user has hovered over one of the inputs.*/
 #questions input:hover {
-  border-color: #2f5a9e;
+  border-color: #1e3964;
   transform: scale(1.05);
   transition: 0.1s;
   margin-left:0.5%;
@@ -230,15 +246,14 @@ header button:hover span:after {
 
 
 }
-
+/*The size of the questions and surropunding elements changes with the screen size, fairly similar as to the header.*/
 @media(max-width:650px){
   #questions h5, #questions li{
     font-size:3vw;
   }
 }
-
+/*The reset and submit buttons of the form are also styled. The position and size of them are crucial to the form overall.*/
 #resetButton, #submitButton{
-cursor:pointer;
 padding: 1vw 2vw;
 margin-left:5%;
 font-weight: bold;
@@ -248,31 +263,45 @@ border-color: black;
 font-size:16px;
 }
 
+/*There are hover effects over the submit and reset buttons, such as a transform and an increase in border radius.*/
 #resetButton:hover, #submitButton:hover{
   transform: scale(1.1);
   transition: 0.2s;
   border-radius: 30px;
 }
-
+ /*There is also an effect that takes place when the user clicks on one of the buttons. There is a transition which looks like a pop effect to the user.*/
 #resetButton:active, #submitButton:active{
-  
-    
     transform: translateY(2px);
   }
+/*This styling affects the LightMode and DarkMode buttons on the questionnaire page. The buttons are positioned to the right so they don't interfere with the form.*/
+  .toggleDM, .toggleLM{
+    float:right;
+    margin-right:5%;
+    margin-top: 5%;
+  }
 
-h2 {
-  padding-left: 5%;
+/* Login Page
+The following segements are styling impact the first page that the user sees; the index or page or login page. For this page there is a simplistic layout as the page needs to be very usable for the user. 
+This page works well with the google-auth-library, and so also uses Google's default styling for certain parts of the login system. 
+*/
+
+/*The login id represents the majority of the index page, being the area that contains all of the login links and buttons.
+The background colour is the same as the header so consistency is maintained throughout the app.*/
+#login {
+  background-color: #1e3964;
+  color: white;
+  margin: 0 auto;
+  width: 250px;
+  padding: 20px;
+  height: 420px;
+  margin-top: 50px;
 }
 
-/* Google Sign-In Button */
+/* Google Sign-In Button 
+These parts of the page are styled by Google- it is their buttons that are being used on this server. The buttons could be changed however its believed they aready look clear and profesional.*/
 .g-signin2 {
   width: 100%;
 }
-
-
-/* #greeting{
-    margin-top: 10px;
-} */
 
 .userName {
   width: 70%;
@@ -282,26 +311,45 @@ h2 {
 }
 
 #linkToHome {
-  visibility: hidden;
+  visibility: hidden; /*The continuation link is hidden as it is only visible after the user has signed into their google account. */
   color: #000;
   padding: 0.5rem;
   background-color: #fff;
-  border: 0.2rem solid #808080;
+  border: 0.3rem solid black;
   margin-top: 10px;
   
 }
 
 #signoutlink{
-  visibility: hidden;
+  visibility: hidden; /*The sign out link is hidden as it is only visible after the user has signed into their google account. */
   color: #000;
   padding: 0.5rem;
   background-color: #fff;
-  border: 0.2rem solid #808080;
+  border: 0.3em solid black;
   margin-top: 40px;
 }
+/*In the server-response box shows the authenitcation state of the user.*/
+#server-response{
+  border: 1px dashed white; 
+  min-width: 10em; 
+  min-height: 1em; 
+  
+}
+/*The welcome message on the welcome page has been styled so the background colour is consistent with that of the header.
+It has also been positioned so that the mesage is central on the page. */ 
+.welcomeMessage{
+  background-color: #1e3964;
+  color:white;
+  text-align: center;
+  width:50%;
+  border-radius: 12px;
+  padding:10px;
+  margin-top:150px;
+  margin-left:25%;
+  text-decoration: none;
+}
 
-.toggleDM, .toggleLM{
-  float:right;
-  margin-right:5%;
-  margin-top: 5%;
+.welcomeMessage a{
+  color:white;
+  
 }

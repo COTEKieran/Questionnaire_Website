@@ -1,0 +1,60 @@
+-<!--This is the first page that the user will see when they sign into the application. 
+The page is basic but useful, giving the user an initial description of what the application is about. 
+From this page, the user can direct themselves around the application, onto the questionnaire page and to sign back out if they wish. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Questionnaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="questionnaire.css">
+
+  <script rel="form" src="login.js"></script>
+
+
+</head>
+
+<body>
+  <header id="header">
+
+    <h1>QuestionnaireBuddy</h1>
+
+    <!--This is the navbar dropdown which will appear if the screen width is below a certain number of pixels. 
+        This is to allow for a mobile-friendly app that can work on smaller screen sizes. 
+        A link of each page appears in the dropdown w=once the user clicks on the ‘Find Page:’ button.  -->
+    <div class="toggle">
+      <button onclick="dropdownFunction()" class="dropbtn">Find Page:</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="">Welcome Page</a>
+        <a href="questionnaire.html">Questionnaire</a>
+        <a href="index.html" onclick="signOut();">Sign Out</a>
+      </div>
+    </div>
+
+    <!--This is the consistent navbar that will appear on each page of the application once the user has signed in. 
+        The buttons will have a link to each respective page and will be contained on the header section of the front-end.  -->
+    <div class="navbar">
+      <ul>
+        <li><button onclick="window.location.href = 'welcome.html';"><span>Welcome Page</span></button></li>
+        <li><button onclick="window.location.href = 'questionnaire.html';"><span>Questionnaire </span></button></li>
+        <li><button onclick="window.location.href = 'index.html' " onclick="signOut();"><span>Sign Out </span></button>
+        </li>
+      </ul>
+    </div>
+  </header>
+<!--Here is the welcome message that the user will be greeted with when they first sign into the application. 
+    The message is just a simple, basic overview of the app to let the user know what they’re looking at.   -->
+<div class="welcomeMessage">
+<h2>Welcome to Questionnaire Buddy</h2>
+<p>This is a questionnaire application for my Web Programming Coursework.</p>
+<p>Click on <a href='questionnaire.html'><u>Questionnaire</u></a> to fill out and submit a form that was created from a JSON file.</p>
+<p>As you have signed in with your Google details, press the Sign Out button to be directed back to the accounts page.</p>
+<p>This application has been designed to suit all screen sizes through responsive styling.</p>
+</div>
+
+ 
+
+</body>
+
+
+</html>

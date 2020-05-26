@@ -155,16 +155,14 @@ function read(data) {
 
 
 
-    function dropdownFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");    
-    }
+  
 
     function toggleDarkMode(){
       document.body.style.backgroundImage = "url('images/backgrounddark.jpg')";
       document.body.style.color = "white";
       document.body.style.transitionDuration = "1s";
       document.getElementById("header").style.background = "black";
-      document.getElementById("header").style.transitionDuration = "1s";
+      document.getElementById("header").style.transitionDuration = "0.25s";
     
       
       
@@ -175,8 +173,8 @@ function read(data) {
       document.body.style.backgroundImage = "url('images/background.jpg')";
       document.body.style.color = "black";
       document.body.style.transitionDuration = "1s";
-      document.getElementById("header").style.background = "#2f5a9e";
-      document.getElementById("header").style.transitionDuration = "1s";
+      document.getElementById("header").style.background = "#1e3964";
+      document.getElementById("header").style.transitionDuration = "0.25s";
       
   
     }
