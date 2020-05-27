@@ -16,16 +16,21 @@ function read(data) {
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
 
+    
+
     if (data.questions[i].type == 'text') {
       const text = document.createElement('input');
-      text.setAttribute('type', 'text');
+		text.setAttribute('type', 'text');
+		text.setAttribute('name', 'text' + (i + 1));
       text.classList.add('questionResponse');
       body.appendChild(text);
+      
     }
 
     if (data.questions[i].type == 'number') {
       const num = document.createElement('input')
       num.setAttribute('type', 'number');
+      num.setAttribute('name', 'number');
       num.classList.add('questionResponse');
       body.appendChild(num);
     }
@@ -38,7 +43,8 @@ function read(data) {
           const li = document.createElement('li');
           const single = document.createElement('input');
           single.setAttribute('type', 'radio');
-          single.setAttribute('name', 'single');
+			single.setAttribute('name', 'single');
+			single.setAttribute('value', options[i]);
           single.classList.add('questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
@@ -58,7 +64,8 @@ function read(data) {
           const li = document.createElement('li');
           const multiple = document.createElement('input');
           multiple.setAttribute('type', 'checkbox');
-          multiple.setAttribute('name', 'mutiple_ ' + options[i]);
+			multiple.setAttribute('name', 'mutiple');
+			multiple.setAttribute('value', options[i]);
           multiple.classList.add('questionResponse');
           const label = document.createElement('label');
           label.textContent = options[i];
@@ -99,10 +106,26 @@ function read(data) {
 
     function receiveJson(){
       let namesElement = document.getElementsByClassName("questionName");
-      let responseElement = document.getElementsByClassName("questionResponse");
+		let responseElement = document.getElementsByClassName("questionResponse");
 
+		const formData = new FormData(document.querySelector('#questions'));
+		let responseNameArray = new Array();
+         
+		for (let i = 0; i < responseElement.length; i++) {
+			let questionName = responseElement[i].getAttribute('name');
+			if (responseNameArray.indexOf(questionName) == -1) {
+				responseNameArray.push(questionName);
+			}
+		}
+         let responseArray = new Array();
+         for(let i = 0; i < responseNameArray.length; i++) {
+         responseArray[i] = formData.getAll(responseNameArray[i]);
+		 }
+
+
+
+		
       let nameArray = new Array();
-      let responseArray = new Array();
       let typeArray = new Array();
 
       for(let i = 0; i < namesElement.length; i++){
@@ -110,11 +133,11 @@ function read(data) {
         typeArray[i] = responseElement[i].getAttribute("type");
       }
 
-      responseArray = getResults(typeArray, responseElement);
+      
 
-      console.log(nameArray);
-      console.log(responseArray);
-      console.log(typeArray);
+      console.log("These are the question names: " + nameArray);
+      console.log("These are the question responses: " + responseArray);
+      console.log("These are the question types: " + typeArray);
 
       let responses = new Array();
       responses[0] = nameArray;
@@ -134,6 +157,9 @@ function read(data) {
       console.log(json);
     }
 
+
+
+    
     function uploadQuestionaire(){
       try{
         let json = receiveJson();

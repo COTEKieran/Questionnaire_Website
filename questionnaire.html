@@ -48,7 +48,7 @@
   <!--Here is the id that links the front-end to the back-end form that ahs been created by a JSON file of questions. 
   Using an id for the entire section makes it easy to style the questionnaire through CSS.-->
   <h2>Fill in the questionnaire below:</h2>
-  <form id="questions">
+  <form id="questions" action"#" onsubmit="receiveJSON(); return false;" method="post">
   </form>
 <!--These two buttons can be clicked on by the user to act on the questionnaire form that they have filled in.
 -->
@@ -56,9 +56,9 @@
     Reset Questionnaire
   </button>
 
-  <button id="submitButton">
+  <input type= submit id="submitButton">
     Submit Questionnaire
-  </button>
+  </input>
 
 
  
