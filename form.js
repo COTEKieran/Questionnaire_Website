@@ -122,9 +122,6 @@ function read(data) {
          responseArray[i] = formData.getAll(responseNameArray[i]);
 		 }
 
-
-
-		
       let nameArray = new Array();
       let typeArray = new Array();
 
@@ -133,9 +130,7 @@ function read(data) {
         typeArray[i] = responseElement[i].getAttribute("type");
       }
 
-      
-
-      console.log("These are the question names: " + nameArray);
+     console.log("These are the question names: " + nameArray);
       console.log("These are the question responses: " + responseArray);
       console.log("These are the question types: " + typeArray);
 
@@ -155,6 +150,7 @@ function read(data) {
      
       let json = receiveJson();
       console.log(json);
+      uploadQuestionaire();
     }
 
 
@@ -182,19 +178,24 @@ function read(data) {
 
 
   
-
+//This function comes into operation when the user clicks on the dark mode button on the questionnaire page.
+//The function changes the colours of the elements on the page for a more approriate user experience.
+//This could be when it is night time and the user requires a darker page for their eyes.
     function toggleDarkMode(){
       document.body.style.backgroundImage = "url('images/backgrounddark.jpg')";
       document.body.style.color = "white";
       document.body.style.transitionDuration = "1s";
       document.getElementById("header").style.background = "black";
       document.getElementById("header").style.transitionDuration = "0.25s";
-    
+      
+      document.getElementById("toggleLM").style.visibility= "visible";
+    document.getElementById("toggleDM").style.visibility= "hidden";
       
       
       
     }
-
+//This function toggles the light mode back on after the user has been on dark mode. 
+//The colours change back to suit the user's light mode preference. 
     function toggleLightMode(){
       document.body.style.backgroundImage = "url('images/background.jpg')";
       document.body.style.color = "black";
@@ -202,7 +203,8 @@ function read(data) {
       document.getElementById("header").style.background = "#1e3964";
       document.getElementById("header").style.transitionDuration = "0.25s";
       
-  
+      document.getElementById("toggleDM").style.visibility= "visible";
+      document.getElementById("toggleLM").style.visibility= "hidden";
     }
   
       

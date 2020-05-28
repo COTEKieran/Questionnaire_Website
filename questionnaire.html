@@ -42,12 +42,15 @@
 
 <!--These buttons allow the user to switch between light and dark mode on the appliccation. 
   The colours change whebn the user clicks on them for a more appealing experience.-->
-<button class="toggleDM" onclick="toggleDarkMode()"><img src="images/moon.jpg" width="50" height="50"></button>
-<button class="toggleLM" onclick="toggleLightMode()"><img src="images/sun.jpg" width="50" height="50"></button>
+
+<button class="toggleLM" id = "toggleLM" onclick="toggleLightMode()"><img src="images/moon.jpg" width="100px" height="50px" ></button>
+
+<button class="toggleDM" id = "toggleDM" onclick="toggleDarkMode()"><img src="images/sun.jpg" width="100px" height="50px" ></button>
 
   <!--Here is the id that links the front-end to the back-end form that ahs been created by a JSON file of questions. 
   Using an id for the entire section makes it easy to style the questionnaire through CSS.-->
-  <h2>Fill in the questionnaire below:</h2>
+ 
+  <h2 id="questionHeading">Fill in the questionnaire below:</h2>
   <form id="questions" action"#" onsubmit="receiveJSON(); return false;" method="post">
   </form>
 <!--These two buttons can be clicked on by the user to act on the questionnaire form that they have filled in.
@@ -56,9 +59,9 @@
     Reset Questionnaire
   </button>
 
-  <input type= submit id="submitButton">
+  <button id="submitButton">
     Submit Questionnaire
-  </input>
+  </button>
 
 
  

@@ -52,7 +52,7 @@ header li {
 }
 /*The buttons on the navigation pane are also styled with bold font and a solid border.*/ 
 header button {
-  margin-top: 2.5%;
+  margin-top: 6.5%;
   font-weight: bold;
   font-size: 1.6vw;
   border-radius: 8px;
@@ -210,9 +210,9 @@ body{
 In styling, all features of the questionnaire are added using the id and the element that needs to be styled. 
 /*Questionnaire Form*/
 
-#questions, h2 {
-  padding-left: 5%;  /*This padding affects the entire set of questions and inputs. It shifts the entire segment right as it was too close to the left border of the screen*/
-  
+#questions, #questionHeading {
+  padding-left: 10%;  /*This padding affects the entire set of questions and inputs. It shifts the entire segment right as it was too close to the left border of the screen*/
+  margin-top:100px;
 }
 
 /*This styling impacts the inputs- this is the box where the user enters information on the form.  */
@@ -275,11 +275,15 @@ font-size:16px;
   }
 /*This styling affects the LightMode and DarkMode buttons on the questionnaire page. The buttons are positioned to the right so they don't interfere with the form.*/
   .toggleDM, .toggleLM{
-    float:right;
-    margin-right:5%;
-    margin-top: 5%;
+    float:left;
+    margin-top:25px;
+    border:none;
   }
-
+  .toggleLM{
+    visibility: hidden;
+    margin-left:50px;
+    background-color: black;
+  }
 /* Login Page
 The following segements are styling impact the first page that the user sees; the index or page or login page. For this page there is a simplistic layout as the page needs to be very usable for the user. 
 This page works well with the google-auth-library, and so also uses Google's default styling for certain parts of the login system. 
