@@ -11,17 +11,17 @@ app.use(express.json());
 
 //Ensures the server starts on localhost:8080
 app.listen(8080,(err) => {
+  console.log('Server has started on localhost:8080');
   if (err) console.error('error encountered starting server', err);
   else console.log('server has started on localhost:8080');
 });
 
-
+//Here the user's responses, along with the question names and types, are sent to a new file called responses.json.
 
 app.post('/post-test', (req,res) => {
   console.log('Got body:',req.body);
   res.sendStatus(200);
-
-  fs.writeFile('pageText.txt', JSON.stringify(req.body), (err) => {
+  fs.writeFile("responses.json", JSON.stringify(req.body,null, '\t'), (err) => {
     if (err) console.log (err);
     console.log("successfully Written to File.");
   });

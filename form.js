@@ -137,16 +137,16 @@ function receiveJson() {
 }
 
 function submit() {
-  // document.getElementById("questions").submit();
+  
 
-  let json = receiveJson();
-  console.log(json);
-
+  
+  
+  uploadQuestionaire();
 }
 
 
 
-
+//This function sends the user's responses, along with the question names and types to a new JSON file, which can be downloaded. 
 function uploadQuestionaire() {
   try {
     let json = receiveJson();
@@ -158,7 +158,7 @@ function uploadQuestionaire() {
       },
       body: json
     };
-    fetch('/post-upload', options);
+    fetch('/post-test', options);
   } catch (err) {
     console.log("File can not be uploaded at this moment Err:" + err);
   }

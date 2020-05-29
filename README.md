@@ -11,6 +11,8 @@ After the user is logged in they are greeted by a welcome page; from here they c
 3. 
 On the Questionnaire page of the app, users can fill in the form and submit it using the button. Once submitted, their response is logged to the console. 
 
+4. 
+Upon submittion of the questionnaire, the user's responses, the question name and the question type are all sent to a JSON file. 
 
 Design and Implementation rationale:
 
