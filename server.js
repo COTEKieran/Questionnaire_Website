@@ -9,6 +9,7 @@ app.use(express.static(__dirname));
 app.use(express.static("public"));
 app.use(express.json());
 
+//Ensures the server starts on localhost:8080
 app.listen(8080,(err) => {
   if (err) console.error('error encountered starting server', err);
   else console.log('server has started on localhost:8080');
@@ -28,19 +29,19 @@ app.post('/post-test', (req,res) => {
 
 const GoogleAuth = require('simple-google-openid');
  
-// you can put your client ID here
+// Uses the Client ID for Google authenitcation.
 app.use(GoogleAuth('313462441845-tg48640feaon7g0pim1smph798l02lch.apps.googleusercontent.com'));
  
-// return 'Not authorized' if we don't have a user
+// return 'Not authorized' if we don't have a user.
 app.use('/api', GoogleAuth.guardMiddleware());
  
 app.get('/api/hello', (req, res) => {
   res.send('Hello ' + (req.user.displayName || 'user without a name') + '!');
- 
+ //Logs to console when  user successfully authenticates through login.  
   console.log('successfully authenticated request by ' + req.user.emails[0].value);
 });
 
-
+//Error message if server doesn't start.
 function error(res,msg){
   res.sendStatus(500);
   console.error(msg);
