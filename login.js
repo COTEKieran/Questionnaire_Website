@@ -60,7 +60,7 @@ callServer(); //The callServer function is called to communicate with the server
     }
     // handle the response
     const data = await response.text();
-    console.log('setting text content: ' + data);
+    console.log(data);
     el.textContent = data;
   }
 

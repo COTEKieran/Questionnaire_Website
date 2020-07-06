@@ -15,7 +15,7 @@ function read(data) {
 
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
-    let questionName = document.createElement("h5");
+    let questionName = document.createElement("h2");
     questionName.classList.add("questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
@@ -160,7 +160,7 @@ function uploadQuestionaire() {
     };
     fetch('/post-test', options);
   } catch (err) {
-    console.log("File can not be uploaded at this moment Err:" + err);
+    console.log("File can not be uploaded at this moment. Error:" + err);
   }
 }
 

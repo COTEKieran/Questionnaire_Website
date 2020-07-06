@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const fs = require('fs');
 
 
 
@@ -12,7 +13,7 @@ app.use(express.json());
 app.listen(8080,(err) => {
   
   if (err) console.error('error encountered starting server', err);
-  else console.log('Server has started on localhost:8080');
+  else console.log('server has started on localhost:8080');
 });
 
 //Here the user's responses, along with the question names and types, are sent to a new file called responses.json.
