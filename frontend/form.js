@@ -1,9 +1,9 @@
-//The form.js JavaScript file reads the questionnaire.json file and displays it to the user as a questionnaire. 
+//The form.js JavaScript file reads the questions.json file and displays it to the user as a questionnaire. 
 
 //This function retreives the JSON file through fetch. Data is then passed through the read function.
 
 async function pageLoaded() {
-  const response = await fetch('questions.json');
+  const response = await fetch('/questions');
   const data = await response.json();
   read(data);
 
@@ -15,7 +15,7 @@ function read(data) {
 
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
-    let questionName = document.createElement("h2");
+    let questionName = document.createElement("h5");
     questionName.classList.add("questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
@@ -160,7 +160,7 @@ function uploadQuestionaire() {
     };
     fetch('/post-test', options);
   } catch (err) {
-    console.log("File can not be uploaded at this moment. Error:" + err);
+    console.log("File can not be uploaded at this moment Err:" + err);
   }
 }
 
