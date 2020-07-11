@@ -5,6 +5,7 @@ const app = express();
 const fs = require('fs');
 
 
+
 app.use(express.static("frontend"));
 app.use(express.static("public"));
 app.use(express.json());
@@ -41,11 +42,8 @@ app.get('/api/hello', (req, res) => {
   console.log('successfully authenticated request by ' + req.user.emails[0].value);
 });
 
-app.get('frontend/form.js', (req,res)=>{
-  res.sendFile('questions.json', {
-    root: __dirname + '/frontend'
-  })
-})
+app.get('/completeform', (req,res)=>{
+  res.sendFile(__dirname +'/questions.json')});
 
 //Error message if server doesn't start.
 function error(res,msg){

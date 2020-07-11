@@ -3,7 +3,7 @@
 //This function retreives the JSON file through fetch. Data is then passed through the read function.
 
 async function pageLoaded() {
-  const response = await fetch('/questions');
+  const response = await fetch('/completeform');
   const data = await response.json();
   read(data);
 
@@ -142,6 +142,7 @@ function submit() {
   
   
   uploadQuestionaire();
+  
 }
 
 
