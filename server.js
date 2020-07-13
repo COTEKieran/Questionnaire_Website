@@ -43,7 +43,12 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.get('/completeform', (req,res)=>{
-  res.sendFile(__dirname +'/questions.json')});
+  res.sendFile(__dirname +'/questions.json')
+});
+
+  app.get('/responsedownload', (req,res)=>{
+    res.download(__dirname +'/responses.json')
+  });
 
 //Error message if server doesn't start.
 function error(res,msg){
