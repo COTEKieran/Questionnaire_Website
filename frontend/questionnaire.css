@@ -253,7 +253,7 @@ This makes it clear that the user has hovered over one of the inputs.*/
   }
 }
 /*The reset and submit buttons of the form are also styled. The position and size of them are crucial to the form overall.*/
-#resetButton, #submitButton{
+#resetButton, #submitButton, #downloadButton{
 padding: 1vw 2vw;
 margin-left:5%;
 font-weight: bold;

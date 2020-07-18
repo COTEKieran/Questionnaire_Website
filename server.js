@@ -13,7 +13,7 @@ app.use(express.json());
 //Ensures the server starts on localhost:8080
 app.listen(8080,(err) => {
   
-  if (err) console.error('error encountered starting server', err);
+  if (err) console.error('error encountered starting server. Error: ', err);
   else console.log('Server has started on localhost:8080');
 });
 
@@ -39,7 +39,7 @@ app.use('/api', GoogleAuth.guardMiddleware());
 app.get('/api/hello', (req, res) => {
   res.send('Hello ' + (req.user.displayName || 'user without a name') + '!');
  //Logs to console when  user successfully authenticates through login.  
-  console.log('successfully authenticated request by ' + req.user.emails[0].value);
+  console.log(req.user.emails[0].value + " has been authenticated successfully!");
 });
 
 app.get('/completeform', (req,res)=>{

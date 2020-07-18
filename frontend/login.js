@@ -9,20 +9,18 @@
 //This function also shows the "continue to application" link which directs the user to the next page of the app. The 'Sign Out' button also appears after the user signs in.
 //The callServer() function is also called here- this function will be discussed down below. 
 function onSignIn(googleUser) {
-    const profile = googleUser.getBasicProfile(); //Communicated with google-auth-library to receive Google API and user details
+    const account = googleUser.getBasicProfile(); //Communicated with google-auth-library to receive Google API and user details
     const el = document.getElementById('greeting');
-    el.textContent = 'Hello ' + profile.getName() + '!';
+    el.textContent = 'Welcome ' + account.getName() + '!';
     const pr = document.getElementById('linkToHome');
     pr.style.visibility = 'visible';
     let link = document.createElement('a');
-    link.textContent = 'Continue to Application'; //Button created after user signs in with Google Account
+    link.textContent = 'Continue to Questionnaire Application'; //Button created after user signs in with Google Account
     link.href = 'http://localhost:8080/welcome.html'; //Link to the next page of the application- accessible after user signs in 
     pr.appendChild(link);
     document.getElementById('signoutlink').style.visibility= 'visible';
-  console.log('ID: ' + profile.getId()); //This informtion is logged to the console- the ID token is sent to the backend for authenitcation
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); 
+  console.log('Name: ' + account.getName());
+  console.log('Email: ' + account.getEmail()); 
 callServer(); //The callServer function is called to communicate with the server for authentication.
   }
 
@@ -33,7 +31,7 @@ callServer(); //The callServer function is called to communicate with the server
     await gapi.auth2.getAuthInstance().signOut(); //Communicating with the google library to allow the user to sign out from their profile.
     console.log('User signed out.');
     const el = document.getElementById('greeting'); //Clicking 'Sign Out' changes what is displayed to the user.
-    el.textContent = 'Not Signed In!';
+    el.textContent = 'User is not signed In!';
     document.getElementById('linkToHome').style.visibility='hidden';
     document.getElementById('signoutlink').style.visibility = 'hidden'; 
   }

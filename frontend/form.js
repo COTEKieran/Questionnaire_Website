@@ -5,17 +5,17 @@
 async function pageLoaded() {
   const response = await fetch('/completeform');
   const data = await response.json();
-  read(data);
+  retrieveJSON(data);
 
 }
 
 //The read function reads the JSON file and translates its contents to the front-end element with the id "questions."
 //Each question is assigned a questionName and all theb questions are appended to the questionnaire. 
-function read(data) {
+function retrieveJSON(data) {
 
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
-    let questionName = document.createElement("h5");
+    let questionName = document.createElement("h2");
     questionName.classList.add("questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);
@@ -93,7 +93,7 @@ function reset() {
 
 //The reieveJson function acquires all of the question names, the question responses and question types and returns them to the console. 
 
-function receiveJson() {
+function getResponses() {
   let namesElement = document.getElementsByClassName("questionName");
   let responseElement = document.getElementsByClassName("questionResponse");
 
@@ -151,7 +151,7 @@ function submit() {
 //This function sends the user's responses, along with the question names and types to a new JSON file, which can be downloaded. 
 function uploadQuestionaire() {
   try {
-    let json = receiveJson();
+    let json = getResponses();
     console.log(json);
     const options = {
       method: 'POST',
@@ -162,7 +162,7 @@ function uploadQuestionaire() {
     };
     fetch('/post-test', options);
   } catch (err) {
-    console.log("File can not be uploaded at this moment Err:" + err);
+    console.log("File not uplodaded. Error: " + err);
   }
 }
 
