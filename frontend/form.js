@@ -15,7 +15,7 @@ function retrieveJSON(data) {
 
   const body = document.getElementById('questions');
   for (let i = 0; i < data.questions.length; i++) {
-    let questionName = document.createElement("h2");
+    let questionName = document.createElement("h4");
     questionName.classList.add("questionName");
     questionName.textContent = data.questions[i].text;
     body.appendChild(questionName);

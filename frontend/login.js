@@ -15,7 +15,7 @@ function onSignIn(googleUser) {
     const pr = document.getElementById('linkToHome');
     pr.style.visibility = 'visible';
     let link = document.createElement('a');
-    link.textContent = 'Continue to Questionnaire Application'; //Button created after user signs in with Google Account
+    link.textContent = 'Continue to Application'; //Button created after user signs in with Google Account
     link.href = 'http://localhost:8080/welcome.html'; //Link to the next page of the application- accessible after user signs in 
     pr.appendChild(link);
     document.getElementById('signoutlink').style.visibility= 'visible';
@@ -67,3 +67,4 @@ callServer(); //The callServer function is called to communicate with the server
   function dropdownFunction() {
     document.getElementById("myDropdown").classList.toggle("show");    
   }
+

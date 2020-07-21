@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
-
-
 app.use(express.static("frontend"));
 app.use(express.static("public"));
 app.use(express.json());

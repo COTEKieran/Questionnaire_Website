@@ -212,7 +212,7 @@ In styling, all features of the questionnaire are added using the id and the ele
 
 #questions, #questionHeading {
   padding-left: 10%;  /*This padding affects the entire set of questions and inputs. It shifts the entire segment right as it was too close to the left border of the screen*/
-  margin-top:100px;
+  margin-top:50px;
 }
 
 /*This styling impacts the inputs- this is the box where the user enters information on the form.  */
@@ -236,21 +236,31 @@ This makes it clear that the user has hovered over one of the inputs.*/
 
 #questions li{
   list-style-type: none;
-  width:15%;
+  width:55%;
   margin-bottom:20px;
 }
 
-#questions h2 {
-  color: black;
-  font-size: 20px;
-
-
-}
 /*The size of the questions and surropunding elements changes with the screen size, fairly similar as to the header.*/
 @media(max-width:650px){
-  #questions h5, #questions li{
+  #questions h3, #questions li{
     font-size:3vw;
   }
+}
+
+h3{
+  padding-top:50px;
+}
+
+#questions input[type=radio]{
+  border: 0px;
+  width: 10%;
+  height: 0.5em;
+}
+
+#questions input[type=checkbox]{
+  border: 0px;
+  width: 10%;
+  height: 0.5em;
 }
 /*The reset and submit buttons of the form are also styled. The position and size of them are crucial to the form overall.*/
 #resetButton, #submitButton, #downloadButton{
