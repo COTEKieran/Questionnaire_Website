@@ -140,7 +140,7 @@ function submit() {
   
 
   
-  
+ 
   uploadQuestionaire();
   
   
@@ -148,10 +148,13 @@ function submit() {
 
 
 
+
+
 //This function sends the user's responses, along with the question names and types to a new JSON file, which can be downloaded. 
 function uploadQuestionaire() {
   try {
     let json = getResponses();
+    
     console.log(json);
     const options = {
       method: 'POST',

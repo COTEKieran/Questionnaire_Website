@@ -4,9 +4,10 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
-app.use(express.static("frontend"));
 app.use(express.static("public"));
 app.use(express.json());
+app.use(express.static("frontend"));
+
 
 //Ensures the server starts on localhost:8080
 app.listen(8080,(err) => {
@@ -20,7 +21,7 @@ app.listen(8080,(err) => {
 app.post('/post-test', (req,res) => {
   console.log('Got body:',req.body);
   res.sendStatus(200);
-  fs.writeFile("responses.json", JSON.stringify(req.body,null, '\t'), (err) => {
+  fs.writeFile("recentResponse.json", JSON.stringify(req.body,null, '\t'), (err) => {
     if (err) console.log (err);
     console.log("successfully Written to File.");
   });
@@ -45,7 +46,7 @@ app.get('/completeform', (req,res)=>{
 });
 
   app.get('/responsedownload', (req,res)=>{
-    res.download(__dirname +'/responses.json')
+    res.download(__dirname +'/recentResponse.json')
   });
 
 //Error message if server doesn't start.
