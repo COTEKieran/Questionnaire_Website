@@ -51,17 +51,15 @@
   Using an id for the entire section makes it easy to style the questionnaire through CSS.-->
  
   <h3 id="questionHeading">Fill in the questionnaire below:</h3>
-  <form id="questions" action"#" onsubmit="receiveJSON(); return false;" method="post">
+  <form id="questions" action"#" onsubmit="return false;" method="post">
+    <div class="formButtons">
+    <input type="submit"></input>
+    <input type="reset"></input>
+    </div>
   </form>
-<!--These two buttons can be clicked on by the user to act on the questionnaire form that they have filled in.
--->
-  <button id="resetButton">
-    Reset Questionnaire
-  </button>
 
-  <button id="submitButton">
-    Submit Questionnaire
-  </button>
+
+  
 
 
  <a id= "downloadButton" download="responsedownload.json" href="/responsedownload">Download submitted response</a>

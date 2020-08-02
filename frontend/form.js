@@ -24,19 +24,21 @@ function retrieveJSON(data) {
 
     if (data.questions[i].type == 'text') {
       const txt = document.createElement('input');
-      
       txt.setAttribute('type', 'text');
       txt.setAttribute('name', 'text' + (i + 1)); //Questions are set typ and name attributes, and are added to the questionResponse class.
       txt.classList.add('questionResponse');
+      txt.required = true;
       body.appendChild(txt);
-      document.getElementsByName('txt').required = true;
+      
     }
 
     if (data.questions[i].type == 'number') {
       const num = document.createElement('input') //An input is also  created for each question.
+      document.getElementsByName('num').required = true;
       num.setAttribute('type', 'number');
       num.setAttribute('name', 'number');
       num.classList.add('questionResponse');
+      num.required = true;
       body.appendChild(num);
     }
 
@@ -84,6 +86,9 @@ function retrieveJSON(data) {
     }
 
   }
+
+    
+    
 }
 //The reset function makes the front-end button reset the questionnaire. 
 function reset() {
@@ -206,9 +211,14 @@ function toggleLightMode() {
 
 
 
+
 //This adds the event listeners to the submit and rest buttons of the questionnaire.
 window.onload = function () {
   pageLoaded();
+  
+  
   document.getElementById("resetButton").addEventListener("click", reset)
-  document.getElementById("submitButton").addEventListener("click", submit)
+  document.getElementById("questions").addEventListener("submit", submit)
+  
+  
 }

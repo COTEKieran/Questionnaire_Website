@@ -223,6 +223,7 @@ In styling, all features of the questionnaire are added using the id and the ele
   border-color: black;
   border-style: double;
   text-align: center;
+  display:inline-block;
 }
 /*The styling changes when a user hovers over one of the inputs. The border colour changes to dark blue, and the input box gets much bigger.
 This makes it clear that the user has hovered over one of the inputs.*/
@@ -237,7 +238,7 @@ This makes it clear that the user has hovered over one of the inputs.*/
 #questions li{
   list-style-type: none;
   width:55%;
-  margin-bottom:20px;
+  
 }
 
 /*The size of the questions and surropunding elements changes with the screen size, fairly similar as to the header.*/
@@ -262,27 +263,16 @@ h3{
   width: 10%;
   height: 0.5em;
 }
-/*The reset and submit buttons of the form are also styled. The position and size of them are crucial to the form overall.*/
-#resetButton, #submitButton, #downloadButton{
-padding: 1vw 2vw;
-margin-left:5%;
-font-weight: bold;
-margin-top:2%;
-border-radius: 22px;
-border-color: black;
-font-size:16px;
+
+#questions input[type=submit],input[type=reset]{
+  display:inline-block;
 }
 
-/*There are hover effects over the submit and reset buttons, such as a transform and an increase in border radius.*/
-#resetButton:hover, #submitButton:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-  border-radius: 30px;
+.formButtons{
+  display:inline-block;
+  padding-top:100px;
+  margin-left:600px;
 }
- /*There is also an effect that takes place when the user clicks on one of the buttons. There is a transition which looks like a pop effect to the user.*/
-#resetButton:active, #submitButton:active{
-    transform: translateY(2px);
-  }
 /*This styling affects the LightMode and DarkMode buttons on the questionnaire page. The buttons are positioned to the right so they don't interfere with the form.*/
   .toggleDM, .toggleLM{
     float:left;
