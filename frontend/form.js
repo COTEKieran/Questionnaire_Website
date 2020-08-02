@@ -23,12 +23,13 @@ function retrieveJSON(data) {
 
 
     if (data.questions[i].type == 'text') {
-      const text = document.createElement('input');
-      text.setAttribute('type', 'text');
-      text.setAttribute('name', 'text' + (i + 1)); //Questions are set typ and name attributes, and are added to the questionResponse class.
-      text.classList.add('questionResponse');
-      body.appendChild(text);
-
+      const txt = document.createElement('input');
+      
+      txt.setAttribute('type', 'text');
+      txt.setAttribute('name', 'text' + (i + 1)); //Questions are set typ and name attributes, and are added to the questionResponse class.
+      txt.classList.add('questionResponse');
+      body.appendChild(txt);
+      document.getElementsByName('txt').required = true;
     }
 
     if (data.questions[i].type == 'number') {
