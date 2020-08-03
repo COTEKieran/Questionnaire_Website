@@ -134,7 +134,12 @@ function getResponses() {
   responses[1] = responseArray;
   responses[2] = typeArray;
 
+  let user_name = localStorage.getItem("username");
+  let user_email = localStorage.getItem("email");
+
   let data = {
+    user_name,
+    user_email,
     questionnaire: responses
   };
   let json = JSON.stringify(data); //All the arrays are combined into one array which contains the questions, responses and question types. 
@@ -157,7 +162,8 @@ function submit() {
 
 
 //This function sends the user's responses, along with the question names and types to a new JSON file, which can be downloaded. 
-function uploadQuestionaire() {
+function uploadQuestionnaire() {
+  
   try {
     let json = getResponses();
     
@@ -170,6 +176,7 @@ function uploadQuestionaire() {
       body: json
     };
     fetch('/post-test', options);
+    document.getElementById("downloadButton").style.visibility = "visible";
   } catch (err) {
     console.log("File not uplodaded. Error: " + err);
   }
@@ -217,7 +224,7 @@ window.onload = function () {
   pageLoaded();
   
   
-  document.getElementById("resetButton").addEventListener("click", reset)
+  document.getElementById("questions").addEventListener("reset", reset)
   document.getElementById("questions").addEventListener("submit", submit)
   
   

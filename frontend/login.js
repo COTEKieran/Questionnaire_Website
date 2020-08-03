@@ -20,7 +20,10 @@ function onSignIn(googleUser) {
     pr.appendChild(link);
     document.getElementById('signoutlink').style.visibility= 'visible';
   console.log('Name: ' + account.getName());
+  localStorage.setItem("username",account.getName());
+  
   console.log('Email: ' + account.getEmail()); 
+  localStorage.setItem("email", account.getEmail());
 callServer(); //The callServer function is called to communicate with the server for authentication.
   }
 

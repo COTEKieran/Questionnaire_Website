@@ -216,7 +216,7 @@ In styling, all features of the questionnaire are added using the id and the ele
 }
 
 /*This styling impacts the inputs- this is the box where the user enters information on the form.  */
-#questions input {
+#questions input[type=text], input[type=number], input[type=radio], input[type=checkbox]{
   border-radius: 6px;
   width: 250px;
   font-size: 20px;
@@ -227,7 +227,7 @@ In styling, all features of the questionnaire are added using the id and the ele
 }
 /*The styling changes when a user hovers over one of the inputs. The border colour changes to dark blue, and the input box gets much bigger.
 This makes it clear that the user has hovered over one of the inputs.*/
-#questions input:hover {
+#questions input[type=text]:hover, input[type=number]:hover, input[type=radio]:hover, input[type=checkbox]:hover {
   border-color: #1e3964;
   transform: scale(1.05);
   transition: 0.1s;
@@ -264,14 +264,15 @@ h3{
   height: 0.5em;
 }
 
-#questions input[type=submit],input[type=reset]{
-  display:inline-block;
-}
+
 
 .formButtons{
   display:inline-block;
-  padding-top:100px;
-  margin-left:600px;
+  
+  
+}
+#downloadButton{
+  visibility: hidden;
 }
 /*This styling affects the LightMode and DarkMode buttons on the questionnaire page. The buttons are positioned to the right so they don't interfere with the form.*/
   .toggleDM, .toggleLM{
