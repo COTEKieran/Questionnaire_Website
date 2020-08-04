@@ -68,6 +68,15 @@ callServer(); //The callServer function is called to communicate with the server
   
 //This is a small function which allows the navigation pane to work throughout the application.
   function dropdownFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");    
+    document.getElementById("myDropdown").classList.toggle("show"); 
+    
+  
+  }
+  
+
+  function welcomeName(){
+    document.getElementById("welcome").innerHTML = "Welcome to Questionnaire Buddy, " + localStorage.getItem("username"); 
   }
 
+
+  

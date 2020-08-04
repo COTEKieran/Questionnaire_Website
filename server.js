@@ -21,10 +21,11 @@ app.listen(8080,(err) => {
 app.post('/post-test', (req,res) => {
   console.log('Got body:',req.body);
   res.sendStatus(200);
-  fs.writeFile("recentResponse.json", 'Questionnaire responses and user details: '+ JSON.stringify(req.body,null, '\t'), (err) => {
+  fs.writeFile("recentResponse.json", 'Response and user details: '+ JSON.stringify(req.body,null, '\t'), (err) => {
     if (err) console.log (err);
     console.log("successfully Written to File.");
   });
+  
 });
 
 const GoogleAuth = require('simple-google-openid');

@@ -25,16 +25,17 @@ function retrieveJSON(data) {
     if (data.questions[i].type == 'text') {
       const txt = document.createElement('input');
       txt.setAttribute('type', 'text');
-      txt.setAttribute('name', 'text' + (i + 1)); //Questions are set typ and name attributes, and are added to the questionResponse class.
+      txt.setAttribute('name', 'text' + (i + 1)); //Questions are set type and name attributes, and are added to the questionResponse class.
       txt.classList.add('questionResponse');
       txt.required = true;
       body.appendChild(txt);
-      
+      let user_name = localStorage.getItem("username");
+      document.getElementsByName("text1")[0].value = user_name;
     }
+    
 
     if (data.questions[i].type == 'number') {
       const num = document.createElement('input') //An input is also  created for each question.
-      document.getElementsByName('num').required = true;
       num.setAttribute('type', 'number');
       num.setAttribute('name', 'number');
       num.classList.add('questionResponse');
@@ -84,15 +85,16 @@ function retrieveJSON(data) {
       body.appendChild(ul);
 
     }
-
+    
   }
 
     
-    
+  
 }
 //The reset function makes the front-end button reset the questionnaire. 
 function reset() {
   document.getElementById("questions").reset();
+  console.clear();
 }
 
 
@@ -143,7 +145,7 @@ function getResponses() {
     questionnaire: responses
   };
   let json = JSON.stringify(data); //All the arrays are combined into one array which contains the questions, responses and question types. 
-
+  console.log(json);
   return json;
 }
 
@@ -166,8 +168,8 @@ function uploadQuestionnaire() {
   
   try {
     let json = getResponses();
-    
     console.log(json);
+    
     const options = {
       method: 'POST',
       headers: {
@@ -225,7 +227,6 @@ window.onload = function () {
   
   
   document.getElementById("questions").addEventListener("reset", reset)
-  document.getElementById("questions").addEventListener("submit", submit)
   
   
 }
