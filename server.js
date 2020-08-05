@@ -42,6 +42,8 @@ app.get('/api/hello', (req, res) => {
   console.log(req.user.emails[0].value + " has been authenticated successfully!");
 });
 
+
+//Express Routes
 app.get('/completeform', (req,res)=>{
   res.sendFile(__dirname +'/questions.json')
 });

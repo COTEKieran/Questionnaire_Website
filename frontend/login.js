@@ -37,6 +37,7 @@ callServer(); //The callServer function is called to communicate with the server
     el.textContent = 'User is not signed In!';
     document.getElementById('linkToHome').style.visibility='hidden';
     document.getElementById('signoutlink').style.visibility = 'hidden'; 
+    console.clear();
   }
 
 

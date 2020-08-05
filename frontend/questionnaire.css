@@ -223,7 +223,7 @@ In styling, all features of the questionnaire are added using the id and the ele
   border-color: black;
   border-style: double;
   text-align: center;
-  display:inline-block;
+  
 }
 /*The styling changes when a user hovers over one of the inputs. The border colour changes to dark blue, and the input box gets much bigger.
 This makes it clear that the user has hovered over one of the inputs.*/
@@ -265,12 +265,34 @@ h3{
 }
 
 
-
+@media (min-width:1000px){
 .formButtons{
-  display:inline-block;
+ margin-top:600px;
+   float:right;
+  margin-right:23vw;
   
-  
+}}
+
+.formButtons input{
+  font-weight: bold;
+  padding: 1vw 2vw;
+border-radius: 22px;
+border-color: black;
+font-size:16px;
+margin-right:10px;
 }
+
+
+/*There are hover effects over the submit and reset buttons, such as a transform and an increase in border radius.*/
+.formButtons input:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+  border-radius: 30px;
+}
+ /*There is also an effect that takes place when the user clicks on one of the buttons. There is a transition which looks like a pop effect to the user.*/
+.formButtons input:active{
+    transform: translateY(2px);
+  }
 #downloadButton{
   visibility: hidden;
 }
