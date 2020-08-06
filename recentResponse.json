@@ -1,6 +1,6 @@
 Response and user details: {
-	"user_name": "Kieran Blowes",
-	"user_email": "kieranblowes10@gmail.com",
+	"user_name": "Kieran Paul Blowes",
+	"user_email": "up891556@myport.ac.uk",
 	"questionnaire": [
 		[
 			"What is your name?",
@@ -12,26 +12,19 @@ Response and user details: {
 		],
 		[
 			[
-				"Kieran Blowes"
+				"Kieran Paul Blowes"
 			],
 			[
-				"Hi"
+				"e"
 			],
 			[
-				"Red"
+				"2"
 			],
 			[
-				"21"
+				"2"
 			],
-			[
-				"Lorde"
-			],
-			[
-				"JavaScript",
-				"Python",
-				"Ook",
-				"LISP"
-			]
+			[],
+			[]
 		],
 		[
 			"text",

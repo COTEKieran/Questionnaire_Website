@@ -1,5 +1,6 @@
-//The form.js JavaScript file reads the questions.json file and displays it to the user as a questionnaire. 
 
+//The form.js JavaScript file reads the questions.json file and displays it to the user as a questionnaire. 
+'use strict';
 //This function retreives the JSON file through fetch. Data is then passed through the read function.
 
 async function pageLoaded() {
@@ -27,9 +28,9 @@ function retrieveJSON(data) {
       txt.setAttribute('type', 'text');
       txt.setAttribute('name', 'text' + (i + 1)); //Questions are set type and name attributes, and are added to the questionResponse class.
       txt.classList.add('questionResponse');
-      txt.required = true;
+      txt.required = true;  //Text and number fields will be required
       body.appendChild(txt);
-      let user_name = localStorage.getItem("username");
+      let user_name = localStorage.getItem("username"); //Using local storage, the "name" question will already be filled in using the user's login name. 
       document.getElementsByName("text1")[0].value = user_name;
     }
     
@@ -141,30 +142,22 @@ function getResponses() {
 
   let data = {
     user_name,
-    user_email,
+    user_email,  //The downloadable JSON will include the user's name and email
     questionnaire: responses
   };
   let json = JSON.stringify(data); //All the arrays are combined into one array which contains the questions, responses and question types. 
-  console.log(json);
+  
   return json;
 }
 
-function submit() {
-  
 
-  
- 
-  uploadQuestionaire();
-  
-  
-}
 
 
 
 
 
 //This function sends the user's responses, along with the question names and types to a new JSON file, which can be downloaded. 
-function uploadQuestionnaire() {
+function uploadResponses() {
   
   try {
     let json = getResponses();
@@ -173,7 +166,7 @@ function uploadQuestionnaire() {
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json'  //Sends the JSON file to the server
       },
       body: json
     };

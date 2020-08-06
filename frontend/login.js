@@ -9,18 +9,19 @@
 //This function also shows the "continue to application" link which directs the user to the next page of the app. The 'Sign Out' button also appears after the user signs in.
 //The callServer() function is also called here- this function will be discussed down below. 
 function onSignIn(googleUser) {
+  console.clear();
     const account = googleUser.getBasicProfile(); //Communicated with google-auth-library to receive Google API and user details
-    const el = document.getElementById('greeting');
-    el.textContent = 'Welcome ' + account.getName() + '!';
-    const pr = document.getElementById('linkToHome');
-    pr.style.visibility = 'visible';
+    const welcome = document.getElementById('greeting');
+    welcome.textContent = 'Welcome ' + account.getName() + '!';
+    const homeLink = document.getElementById('linkToHome');
+    homeLink.style.visibility = 'visible';
     let link = document.createElement('a');
     link.textContent = 'Continue to Application'; //Button created after user signs in with Google Account
     link.href = 'http://localhost:8080/welcome.html'; //Link to the next page of the application- accessible after user signs in 
-    pr.appendChild(link);
+    homeLink.appendChild(link);
     document.getElementById('signoutlink').style.visibility= 'visible';
   console.log('Name: ' + account.getName());
-  localStorage.setItem("username",account.getName());
+  localStorage.setItem("username",account.getName()); //The user's name and email address is added to the local stoage for later use. 
   
   console.log('Email: ' + account.getEmail()); 
   localStorage.setItem("email", account.getEmail());
@@ -33,8 +34,8 @@ callServer(); //The callServer function is called to communicate with the server
     location.reload();
     await gapi.auth2.getAuthInstance().signOut(); //Communicating with the google library to allow the user to sign out from their profile.
     console.log('User signed out.');
-    const el = document.getElementById('greeting'); //Clicking 'Sign Out' changes what is displayed to the user.
-    el.textContent = 'User is not signed In!';
+    const welcome = document.getElementById('greeting'); //Clicking 'Sign Out' changes what is displayed to the user.
+    welcome.textContent = 'User is not signed In!';
     document.getElementById('linkToHome').style.visibility='hidden';
     document.getElementById('signoutlink').style.visibility = 'hidden'; 
     console.clear();
@@ -44,26 +45,26 @@ callServer(); //The callServer function is called to communicate with the server
 //The callServer function occurs when the user signs in using their Google account. It's purpose is to authenticate the user befire they sign in to the app.
 //The user's ID token is used for this authentication. 
   async function callServer() {
-    const token = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
+    const uniqueToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
 
-    const el = document.getElementById('server-response');
-    el.textContent = 'loading…';
+    const welcome = document.getElementById('server-response');
+    welcome.textContent = 'loading…';
 
     const fetchOptions = {
       credentials: 'same-origin',
       method: 'GET',
-      headers: { 'Authorization': 'Bearer ' + token },
+      headers: { 'Authorization': 'Bearer ' + uniqueToken },
     };
-    const response = await fetch('/api/hello', fetchOptions);
-    if (!response.ok) {
+    const checkAuthentication = await fetch('/api/hello', fetchOptions);
+    if (!checkAuthentication.ok) {
       // handle the error
-      el.textContent = "Unauthorised User\n" + "Error code" + " " + response.status; //This is shown on the login page if the user is not authenticated or not signed in.
+      welcome.textContent = "Unauthorised User\n" + "Error code" + " " + checkAuthentication.status; //This is shown on the login page if the user is not authenticated or not signed in.
       return;
     }
     // handle the response
-    const data = await response.text();
-    console.log(data);
-    el.textContent = data;
+    const message = await checkAuthentication.text();
+    console.log(message);
+    welcome.textContent = message;
   }
 
   
@@ -74,7 +75,7 @@ callServer(); //The callServer function is called to communicate with the server
   
   }
   
-
+//On the welcome page, the user's name is included through the use of local storage. 
   function welcomeName(){
     document.getElementById("welcome").innerHTML = "Welcome to Questionnaire Buddy, " + localStorage.getItem("username"); 
   }
